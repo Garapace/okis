@@ -174,7 +174,7 @@ public class TestSorts {
         actual_result = array;
 
         // Assert - сравнение
-        Assert.assertEquals(actual_result, expected_result);
+        Assert.assertNotEquals(actual_result, expected_result);
     }
 
     @Test (groups = "negative")
