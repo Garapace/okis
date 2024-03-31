@@ -145,13 +145,12 @@ public class TestSorts {
         actual_result = array;
 
         // Assert - сравнение
-        Assert.assertEquals(actual_result, expected_result);
+        Assert.assertNotEquals(actual_result, expected_result);
     }
 
     @Test (groups = "negative")
     void TestNegativeMergeSortDouble () {
         // Arange - создание окружения
-        final double delta = 1e-2;
         double[] array = new double[] {9.123, 18.213, 2.24, 4.901, 7.77, 5.52};
         double[] expected_result = new double[] {2.24, 5.52, 4.901, 7.77, 9.123, 18.213};
         double[] actual_result;
@@ -160,7 +159,7 @@ public class TestSorts {
         actual_result = Sorts.MergeSort(array);
 
         // Assert - сравнение
-        Assert.assertEquals(actual_result, expected_result, delta);
+        Assert.assertNotEquals(actual_result, expected_result);
     }
 
     @Test (groups = "negative")
@@ -181,7 +180,6 @@ public class TestSorts {
     @Test (groups = "negative")
     void TestNegativeSelectionSortDouble () {
         // Arange - создание окружения
-        final double delta = 1e-2;
         double[] array = new double[] {9.123, 18.213, 2.24, 4.901, 7.77, 5.52};
         double[] expected_result = new double[] {2.24, 5.52, 4.901, 7.77, 9.123, 18.213};
         double[] actual_result;
@@ -191,6 +189,6 @@ public class TestSorts {
         actual_result = array;
 
         // Assert - сравнение
-        Assert.assertEquals(actual_result, expected_result, delta);
+        Assert.assertNotEquals(actual_result, expected_result);
     }
 }
