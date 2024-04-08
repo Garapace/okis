@@ -2,18 +2,19 @@ package org.example;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.example.Sorts.*;
+
+import java.io.IOException;
 
 public class TestSorts {
     @Test (groups = "positive")
-    void TestQuickSortInt () {
+    void testQuickSortInt() {
         // Arange - создание окружения
         int[] array = new int[] {9, 18, 2, 4, 7, 5};
         int[] expected_result = new int[] {2, 4, 5, 7, 9, 18};
         int[] actual_result;
 
         // Act - действие
-        Sorts.QuickSort(array, 0, array.length - 1);
+        Sorts.quickSort(array, 0, array.length - 1);
         actual_result = array;
 
         // Assert - сравнение
@@ -21,7 +22,7 @@ public class TestSorts {
     }
 
     @Test (groups = "positive")
-    void TestQuickSortDouble () {
+    void testQuickSortDouble() {
         // Arange - создание окружения
         final double delta = 1e-2;
         double[] array = new double[] {9.123, 18.213, 2.24, 4.901, 7.77, 5.52};
@@ -29,7 +30,7 @@ public class TestSorts {
         double[] actual_result;
 
         // Act - действие
-        Sorts.QuickSort(array, 0, array.length - 1);
+        Sorts.quickSort(array, 0, array.length - 1);
         actual_result = array;
 
 
@@ -39,21 +40,21 @@ public class TestSorts {
 
 
     @Test (groups = "positive")
-    void TestMergeSortInt () {
+    void testMergeSortInt() {
         // Arange - создание окружения
         int[] array = new int[] {9, 18, 2, 4, 7, 5};
         int[] expected_result = new int[] {2, 4, 5, 7, 9, 18};
         int[] actual_result;
 
         // Act - действие
-        actual_result = Sorts.MergeSort(array);
+        actual_result = Sorts.mergeSort(array);
 
         // Assert - сравнение
         Assert.assertEquals(actual_result, expected_result);
     }
 
     @Test (groups = "positive")
-    void TestMergeSortDouble () {
+    void testMergeSortDouble() {
         // Arange - создание окружения
         final double delta = 1e-2;
         double[] array = new double[] {9.123, 18.213, 2.24, 4.901, 7.77, 5.52};
@@ -61,7 +62,7 @@ public class TestSorts {
         double[] actual_result;
 
         // Act - действие
-        actual_result = Sorts.MergeSort(array);
+        actual_result = Sorts.mergeSort(array);
 
         // Assert - сравнение
         Assert.assertEquals(actual_result, expected_result, delta);
@@ -69,14 +70,14 @@ public class TestSorts {
 
 
     @Test (groups = "positive")
-    void TestGnomeSortInt () {
+    void testGnomeSortInt() {
         // Arange - создание окружения
         int[] array = new int[] {9, 18, 2, 4, 7, 5};
         int[] expected_result = new int[] {2, 4, 5, 7, 9, 18};
         int[] actual_result;
 
         // Act - действие
-        Sorts.GnomeSort(array);
+        Sorts.gnomeSort(array);
         actual_result = array;
 
         // Assert - сравнение
@@ -84,7 +85,7 @@ public class TestSorts {
     }
 
     @Test (groups = "positive")
-    void TestGnomeSortDouble () {
+    void testGnomeSortDouble() {
         // Arange - создание окружения
         final double delta = 1e-2;
         double[] array = new double[] {9.123, 18.213, 2.24, 4.901, 7.77, 5.52};
@@ -92,7 +93,7 @@ public class TestSorts {
         double[] actual_result;
 
         // Act - действие
-        Sorts.GnomeSort(array);
+        Sorts.gnomeSort(array);
         actual_result = array;
 
         // Assert - сравнение
@@ -101,14 +102,14 @@ public class TestSorts {
 
 
     @Test (groups = "positive")
-    void TestSelectionSortInt () {
+    void testSelectionSortInt() {
         // Arange - создание окружения
         int[] array = new int[] {9, 18, 2, 4, 7, 5};
         int[] expected_result = new int[] {2, 4, 5, 7, 9, 18};
         int[] actual_result;
 
         // Act - действие
-        Sorts.SelectionSort(array);
+        Sorts.selectionSort(array);
         actual_result = array;
 
         // Assert - сравнение
@@ -116,7 +117,7 @@ public class TestSorts {
     }
 
     @Test (groups = "positive")
-    void TestSelectionSortDouble () {
+    void testSelectionSortDouble() {
         // Arange - создание окружения
         final double delta = 1e-2;
         double[] array = new double[] {9.123, 18.213, 2.24, 4.901, 7.77, 5.52};
@@ -124,7 +125,7 @@ public class TestSorts {
         double[] actual_result;
 
         // Act - действие
-        Sorts.SelectionSort(array);
+        Sorts.selectionSort(array);
         actual_result = array;
 
         // Assert - сравнение
@@ -133,59 +134,15 @@ public class TestSorts {
 
 
 
-    @Test (groups = "negative")
-    void TestNegativeQuickSortInt () {
+    @Test (groups = "negative", expectedExceptions = {IllegalArgumentException.class} )
+    void testNegativeQuickSortInt() {
         // Arange - создание окружения
         int[] array = new int[] {9, 18, 2, 4, 7, 5};
-        int[] expected_result = new int[] {2, 5, 4, 7, 9, 18};
+        int[] expected_result = new int[] {2, 4, 5, 7, 9, 18};
         int[] actual_result;
 
         // Act - действие
-        Sorts.QuickSort(array, 0, array.length - 1);
-        actual_result = array;
-
-        // Assert - сравнение
-        Assert.assertNotEquals(actual_result, expected_result);
-    }
-
-    @Test (groups = "negative")
-    void TestNegativeMergeSortDouble () {
-        // Arange - создание окружения
-        double[] array = new double[] {9.123, 18.213, 2.24, 4.901, 7.77, 5.52};
-        double[] expected_result = new double[] {2.24, 5.52, 4.901, 7.77, 9.123, 18.213};
-        double[] actual_result;
-
-        // Act - действие
-        actual_result = Sorts.MergeSort(array);
-
-        // Assert - сравнение
-        Assert.assertNotEquals(actual_result, expected_result);
-    }
-
-    @Test (groups = "negative")
-    void TestNegativeGnomeSortInt () {
-        // Arange - создание окружения
-        int[] array = new int[] {9, 18, 2, 4, 7, 5};
-        int[] expected_result = new int[] {2, 5, 4, 7, 9, 18};
-        int[] actual_result;
-
-        // Act - действие
-        Sorts.GnomeSort(array);
-        actual_result = array;
-
-        // Assert - сравнение
-        Assert.assertNotEquals(actual_result, expected_result);
-    }
-
-    @Test (groups = "negative")
-    void TestNegativeSelectionSortDouble () {
-        // Arange - создание окружения
-        double[] array = new double[] {9.123, 18.213, 2.24, 4.901, 7.77, 5.52};
-        double[] expected_result = new double[] {2.24, 5.52, 4.901, 7.77, 9.123, 18.213};
-        double[] actual_result;
-
-        // Act - действие
-        Sorts.SelectionSort(array);
+        Sorts.quickSort(array, -1000, array.length - 1);
         actual_result = array;
 
         // Assert - сравнение

@@ -1,7 +1,7 @@
 package org.example;
 
 public class Search {
-    public static int BinarySearch (int[] sorted_array, int target) {
+    public static int binarySearch(int[] sorted_array, int target) {
         int left_index = 0;
         int right_index =  sorted_array.length - 1;
 

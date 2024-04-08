@@ -1,18 +1,22 @@
 package org.example;
 
 public class Sorts {
-    public static void QuickSort (int[] array, int left, int right) {
+    public static void quickSort(int[] array, int left, int right) {
+        if (left < 0 || right > array.length - 1) {
+            throw new IllegalArgumentException();
+        }
+
         if (array.length == 0 || left > right) return;
 
         if (left < right) {
-            int divide_index = Partition(array, left, right);
+            int divide_index = partition(array, left, right);
 
-            QuickSort(array, left, divide_index - 1);
-            QuickSort(array, divide_index, right);
+            quickSort(array, left, divide_index - 1);
+            quickSort(array, divide_index, right);
         }
     }
 
-    private static int Partition (int[] array, int left, int right) {
+    private static int partition(int[] array, int left, int right) {
         int left_index = left;
         int right_index = right;
 
@@ -23,7 +27,7 @@ public class Sorts {
             while (array[right_index] > pivot) right_index--;
 
             if (left_index <= right_index) {
-                Swap(array, left_index, right_index);
+                swap(array, left_index, right_index);
                 left_index++;
                 right_index--;
             }
@@ -31,7 +35,7 @@ public class Sorts {
         return left_index;
     }
 
-    public static int[] MergeSort (int[] array) {
+    public static int[] mergeSort(int[] array) {
         int[] temp;
         int[] CurrentArray = array;
         int[] CurrentDest = new int[array.length];
@@ -39,7 +43,7 @@ public class Sorts {
         int size = 1;
         while (size < array.length) {
             for (int i = 0; i < array.length; i += 2 * size) {
-                Merge(CurrentArray, i, CurrentArray, i + size, CurrentDest, i, size);
+                merge(CurrentArray, i, CurrentArray, i + size, CurrentDest, i, size);
             }
             temp = CurrentArray;
             CurrentArray = CurrentDest;
@@ -50,8 +54,8 @@ public class Sorts {
         return CurrentArray;
     }
 
-    private static void Merge (int[] array1, int array1_start, int[] array2, int array2_start,
-                               int[] dest, int dest_start, int size) {
+    private static void merge(int[] array1, int array1_start, int[] array2, int array2_start,
+                              int[] dest, int dest_start, int size) {
         int index1 = array1_start;
         int index2 = array2_start;
 
@@ -71,7 +75,7 @@ public class Sorts {
         }
     }
 
-    public static void GnomeSort (int[] array) {
+    public static void gnomeSort(int[] array) {
         int index = 1;
         int pivot = 0;
         for (; pivot < array.length - 1;) {
@@ -91,14 +95,14 @@ public class Sorts {
         }
     }
 
-    public static void SelectionSort (int[] array) {
+    public static void selectionSort(int[] array) {
         for (int step = 0; step < array.length; step++) {
-            int index = Min(array, step);
-            Swap(array, step, index);
+            int index = min(array, step);
+            swap(array, step, index);
         }
     }
 
-    private static int Min(int[] array, int start) {
+    private static int min(int[] array, int start) {
         int min_index = start;
         int min_value = array[start];
         for (int i = start + 1; i < array.length; i++) {
@@ -112,18 +116,18 @@ public class Sorts {
 
     // =======================================================
 
-    public static void QuickSort (double[] array, int left, int right) {
+    public static void quickSort(double[] array, int left, int right) {
         if (array.length == 0 || left > right) return;
 
         if (left < right) {
-            int divide_index = Partition(array, left, right);
+            int divide_index = partition(array, left, right);
 
-            QuickSort(array, left, divide_index - 1);
-            QuickSort(array, divide_index, right);
+            quickSort(array, left, divide_index - 1);
+            quickSort(array, divide_index, right);
         }
     }
 
-    private static int Partition (double[] array, int left, int right) {
+    private static int partition(double[] array, int left, int right) {
         int left_index = left;
         int right_index = right;
 
@@ -134,7 +138,7 @@ public class Sorts {
             while (array[right_index] > pivot) right_index--;
 
             if (left_index <= right_index) {
-                Swap(array, left_index, right_index);
+                swap(array, left_index, right_index);
                 left_index++;
                 right_index--;
             }
@@ -142,7 +146,7 @@ public class Sorts {
         return left_index;
     }
 
-    public static double[] MergeSort (double[] array) {
+    public static double[] mergeSort(double[] array) {
         double[] temp;
         double[] CurrentArray = array;
         double[] CurrentDest = new double[array.length];
@@ -150,7 +154,7 @@ public class Sorts {
         int size = 1;
         while (size < array.length) {
             for (int i = 0; i < array.length; i += 2 * size) {
-                Merge(CurrentArray, i, CurrentArray, i + size, CurrentDest, i, size);
+                merge(CurrentArray, i, CurrentArray, i + size, CurrentDest, i, size);
             }
             temp = CurrentArray;
             CurrentArray = CurrentDest;
@@ -161,8 +165,8 @@ public class Sorts {
         return CurrentArray;
     }
 
-    private static void Merge (double[] array1, int array1_start, double[] array2, int array2_start,
-                               double[] dest, int dest_start, int size) {
+    private static void merge(double[] array1, int array1_start, double[] array2, int array2_start,
+                              double[] dest, int dest_start, int size) {
         int index1 = array1_start;
         int index2 = array2_start;
 
@@ -182,7 +186,7 @@ public class Sorts {
         }
     }
 
-    public static void GnomeSort (double[] array) {
+    public static void gnomeSort(double[] array) {
         int index = 1;
         int pivot = 0;
         for (; pivot < array.length - 1;) {
@@ -202,14 +206,14 @@ public class Sorts {
         }
     }
 
-    public static void SelectionSort (double[] array) {
+    public static void selectionSort(double[] array) {
         for (int step = 0; step < array.length; step++) {
-            int index = Min(array, step);
-            Swap(array, step, index);
+            int index = min(array, step);
+            swap(array, step, index);
         }
     }
 
-    private static int Min(double[] array, int start) {
+    private static int min(double[] array, int start) {
         int min_index = start;
         double min_value = array[start];
         for (int i = start + 1; i < array.length; i++) {
@@ -221,13 +225,13 @@ public class Sorts {
         return min_index;
     }
 
-    private static void Swap(int[] array, int index1, int index2) {
+    private static void swap(int[] array, int index1, int index2) {
         int temp = array[index1];
         array[index1] = array[index2];
         array[index2] = temp;
     }
 
-    private static void Swap(double[] array, int index1, int index2) {
+    private static void swap(double[] array, int index1, int index2) {
         double temp = array[index1];
         array[index1] = array[index2];
         array[index2] = temp;
