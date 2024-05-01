@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Edge {
     public static void main(String[] args) {
-        // иницилизация драйвера + неявное ожидание
+        // инициализация драйвера + неявное ожидание
         WebDriver driver = new EdgeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 

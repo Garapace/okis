@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e317e37c-4392-43e4-baa8-6a657e67af48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/FireFox2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FireFox_1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FireFox1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
