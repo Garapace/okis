@@ -28,11 +28,11 @@ public class CommonAction {
                 break;
         }
 
-        /*int screenWidth = driver.manage().window().getSize().getWidth();
+        int screenWidth = driver.manage().window().getSize().getWidth();
         int screenHeight = driver.manage().window().getSize().getHeight();
 
         driver.manage().window().setSize(new Dimension(screenWidth, screenHeight));
-        driver.manage().window().setPosition(new Point(0, 0));*/
+        driver.manage().window().setPosition(new Point(0, 0));
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICIT_WAIT));
 

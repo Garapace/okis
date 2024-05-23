@@ -2,7 +2,7 @@ package org.common;
 
 public class Config {
 
-    public static final String BROWSER = "Firefox";
+    public static final String BROWSER = "Edge";
 
     public static final String URL = "https://otvet.mail.ru";
 

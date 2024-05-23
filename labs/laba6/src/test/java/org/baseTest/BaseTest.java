@@ -5,8 +5,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.pages.BasePage;
 import org.pages.HomePage;
 import org.openqa.selenium.WebDriver;
-import org.pages.BasePage;
-import org.pages.HomePage;
 import org.testng.annotations.*;
 
 import static org.common.Config.*;
@@ -14,20 +12,20 @@ import static org.common.Config.*;
 
 public class BaseTest {
     protected WebDriver driver;
-    protected BasePage basePage;
-    protected HomePage homePage;
+    protected BasePage BasePage;
+    protected HomePage HomePage;
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
         driver = CommonAction.createDriver();
-        basePage = new BasePage(driver);
-        homePage = new HomePage(driver);
+        BasePage = new BasePage(driver);
+        HomePage = new HomePage(driver);
 
-        basePage.open(URL);
+        BasePage.open(URL);
     }
 
     public void openMainPage() {
-        basePage.open(URL);
+        BasePage.open(URL);
     }
 
     @AfterMethod(alwaysRun = true)

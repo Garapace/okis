@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="AuthenticationTest" verbose="1">
+    <test name="Authentication">
+        <groups>
+            <run>
+                <include name="authorization"/>
+                <include name="parse"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="org.authorization.AuthorizationTest"/>
+            <class name="org.parse.ParseTest"/>
+        </classes>
+    </test>
+</suite>
