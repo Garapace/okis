@@ -24,16 +24,6 @@ public class AuthorizationTest extends BaseTest {
         Assert.assertEquals(actualResult, expectedResult);
     }
 
-    @Test (groups = "authorization", dataProvider = "userData")
-    void exitPositive (String username, String password) throws HomePage.AuthenticationException {
-        String actualResult;
-        String expectedResult = "Войти";
-
-        actualResult = HomePage.authorization(username, password).exit().exitCheck();
-
-        Assert.assertEquals(actualResult, expectedResult);
-    }
-
     private static String reverseString(String str) {
         return new StringBuilder(str).reverse().toString();
     }
@@ -48,6 +38,16 @@ public class AuthorizationTest extends BaseTest {
     void authorizationPasswordNegative (String username, String password) throws HomePage.AuthenticationException {
         String invalidPassword = reverseString(password);
         HomePage.authorization(username, invalidPassword);
+    }
+
+    @Test (groups = "authorization", dataProvider = "userData")
+    void exitPositive (String username, String password) throws HomePage.AuthenticationException {
+        String actualResult;
+        String expectedResult = "Войти";
+
+        actualResult = HomePage.authorization(username, password).exit().exitCheck();
+
+        Assert.assertEquals(actualResult, expectedResult);
     }
 
     @Test (groups = "authorization", dataProvider = "userData", expectedExceptions = {HomePage.AuthenticationException.class})
